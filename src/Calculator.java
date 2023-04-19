@@ -17,26 +17,6 @@ public class Calculator {
         System.out.print("Enter Second Number: ");
         input2 = scanner.nextFloat();
 
-        CalculatorContext calculatorContext = new CalculatorContext();
-
-        switch (operator) {
-            case "+":
-                calculatorContext.setStrategy(new Add(input1, input2));
-                break;
-            case "-":
-                calculatorContext.setStrategy(new Subtract(input1, input2));
-                break;
-            case "/":
-                calculatorContext.setStrategy(new Divide(input1, input2));
-                break;
-            case "*":
-                calculatorContext.setStrategy(new Multiply(input1, input2));
-                break;
-            default:
-                // Custom exception
-                throw new NoStrategyException();
-        }
-
-        calculatorContext.executeStrategy();
+        CalculatorFacade.calculate(input1, input2, operator);
     }
 }
